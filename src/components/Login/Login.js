@@ -5,7 +5,7 @@ import Header from '../Home/Header/Header';
 import './Login.css'
 
 const Login = () => {
-    const { SignInWithGoogle } = useAuth();
+    const { SignInWithGoogle, setError, setIsLoading } = useAuth();
     const location = useLocation();
     const history = useHistory();
     const redirect_uri = location.state?.from || "home";
@@ -14,6 +14,12 @@ const Login = () => {
             .then(result =>
                 history.push(redirect_uri)
             )
+            .catch(error => {
+                setError(error.message)
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
     }
     return (
         <div>
@@ -28,11 +34,11 @@ const Login = () => {
 
                             <div className="p-5">
                                 <h4 className="mt-5 mb-3">Login With</h4>
-                                <div className="d-flex justify-content-around align-items-center mb-5 p-0 pe-2 btn-login">
+                                <div onClick={handleGoogleLogin} className="d-flex justify-content-around align-items-center mb-5 p-0 pe-2 btn-login">
                                     <div className="m-0 me-2" >
                                         <img src="https://i.ibb.co/RywzMBF/7123025-logo-google-g-icon.png" className="img-fluid" alt="" />
                                     </div>
-                                    <h6 className="p-0 m-0" onClick={handleGoogleLogin}>Continue With Google</h6>
+                                    <h6 className="p-0 m-0">Continue With Google</h6>
                                 </div>
                             </div>
                         </div>

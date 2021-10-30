@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
-import Header from '../Header/Header';
 import Offering from '../Offering/Offering';
 
 const Offerings = () => {

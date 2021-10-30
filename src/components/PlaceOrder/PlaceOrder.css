@@ -1,0 +1,13 @@
+.desc{
+    text-align: justify;
+}
+.btn-regular-md{
+    background-color: rgb(63, 202, 188);
+}
+.btn-regular-md-full{
+    width: 100%;
+    background-color: rgb(34, 189, 173);
+}
+.form-book input{
+    border-radius: none !important;
+}

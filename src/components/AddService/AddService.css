@@ -1,13 +1,15 @@
-form input,textarea{
+.add-service-form input,textarea{
     width: 40%;
     margin: 10px 0;
     padding: 7px;
     border: 1px solid grey;
+    border-radius: 2px;
 }
-form input:focus,textarea:focus{
-    border: 1px solid black;
+.add-service-form input:focus,textarea:focus{
+    border: 1px solid #0d6efd;
+    outline: 1px solid #0d6efd;
 }
-form textarea{
+.add-service-form textarea{
     height: 200px;
     margin: 10px 0;
 }

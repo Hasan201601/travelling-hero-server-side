@@ -7,20 +7,29 @@ import './Header.css'
 const Header = () => {
     const { user, logOut } = useAuth()
     return (
-        <div>
-            <Navbar className="nav-bar" variant="dark" fixed="top">
+        <div className="pb-5">
+            <Navbar collapseOnSelect expand="lg" className="nav-bar fw-bolder" variant="dark" fixed="top">
                 <Container>
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-                    <Nav className="ms-auto">
-                        <NavLink className="ms-4 py-2 text-decoration-none text-white" to="/home">Home</NavLink>
-                        <NavLink className="ms-4 py-2 text-decoration-none text-white" to="/about">About</NavLink>
-                        <NavLink className="ms-4 py-2 text-decoration-none text-white" to="/orders">My Orders</NavLink>
-                        <NavLink className="ms-4 py-2 text-decoration-none text-white" to="/manageorders">Manage all Orders</NavLink>
-                        <NavLink className="ms-4 py-2 text-decoration-none text-white" to="/addservice">Add A New Service</NavLink>
-                        {
-                            !user.email ? <NavLink className="ms-4 text-decoration-none text-white py-2" to="/login">Login</NavLink> : <Button className="m-0 ms-2" variant="info" onClick={logOut}>LogOut</Button>
-                        }
-                    </Nav>
+                    <Navbar.Brand>Travelling Hero</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse>
+                        <Nav className="ms-auto d-flex align-items-center justify-content-center">
+                            <NavLink className="ms-4 nav-item text-decoration-none text-white" to="/home">Home</NavLink>
+                            <NavLink className="ms-4 nav-item text-decoration-none text-white" to="/about">About</NavLink>
+
+                            {
+                                !user.email ? <NavLink className="ms-4 text-decoration-none nav-item text-white" to="/login">Login</NavLink>
+                                    :
+                                    <>
+                                        <NavLink className="ms-4  text-decoration-none nav-item  text-white" to="/orders">My Orders</NavLink>
+                                        <NavLink className="ms-4 text-decoration-none nav-item text-white" to="/manageorders">Manage all Orders</NavLink>
+                                        <NavLink className="ms-4 text-decoration-none nav-item text-white" to="/addservice">Add A New Service</NavLink>
+                                        <Navbar.Text className='mx-2 name'>{user.displayName}</Navbar.Text>
+                                        <button className="btn-regular btn-regular-md" variant="info" onClick={logOut}>LogOut</button>
+                                    </>
+                            }
+                        </Nav>
+                    </Navbar.Collapse>
                 </Container>
             </Navbar>
         </div>
