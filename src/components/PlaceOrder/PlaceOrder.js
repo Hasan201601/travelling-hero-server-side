@@ -21,7 +21,12 @@ const PlaceOrder = () => {
     }, [])
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        data.orderItem = offering._id;
+        data.orderItem = {
+            id: offering._id,
+            title: offering.title,
+            price: offering.price
+        };
+        data.status = 'pending';
         axios.post('http://localhost:5000/orders', data)
             .then(res => {
                 if (res.data.insertedId) {
@@ -51,7 +56,7 @@ const PlaceOrder = () => {
                         <Form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column justify-content-center align-items-center form-book">
 
                             <Form.Control className="mb-4" type="text" {...register("title", { required: true, maxLength: 50 })} defaultValue={user.displayName} placeholder="Tour Title" />
-                            <Form.Control className="mb-4" type="text" {...register("description")} placeholder="email" defaultValue={user.email} />
+                            <Form.Control className="mb-4" type="text" {...register("email")} placeholder="email" defaultValue={user.email} />
                             <Form.Control className="mb-4" type="text" {...register("address1")} placeholder="Address1" />
                             <Form.Control className="mb-4" type="number" {...register("phone")} placeholder="Phone Number" />
                             <Form.Control className="mb-4" type="text" {...register("city")} placeholder="City" />
