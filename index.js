@@ -2,6 +2,7 @@ const express = require('express');
 const app = express()
 const cors = require('cors')
 const { MongoClient } = require('mongodb')
+const objectId = require('mongodb').ObjectId;
 require('dotenv').config();
 const port = process.env.PORT || 5000;
 
@@ -20,6 +21,7 @@ async function run() {
         console.log('database connected')
         const database = client.db('travelingHeroDb');
         const offeringsCollection = database.collection('offerings')
+        const orders = database.collection('orders')
 
         //GET API
         app.get('/offerings', async (req, res) => {
@@ -27,10 +29,23 @@ async function run() {
             const offerings = await cursor.toArray()
             res.send(offerings)
         })
+        //GET single offering
+        app.get('/offerings/:id', async (req, res) => {
+            const id = req.params.id
+            const query = { _id: objectId(id) }
+            const result = await offeringsCollection.findOne(query)
+            res.json(result)
+        })
         //POST API
         app.post('/offerings', async (req, res) => {
             const offering = req.body;
             const result = await offeringsCollection.insertOne(offering)
+            res.json(result)
+        })
+        //Shipping POST API
+        app.post('/orders', async (req, res) => {
+            const order = req.body;
+            const result = await orders.insertOne(order)
             res.json(result)
         })
     }
