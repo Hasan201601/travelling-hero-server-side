@@ -1,0 +1,13 @@
+form input,textarea{
+    width: 40%;
+    margin: 10px 0;
+    padding: 7px;
+    border: 1px solid grey;
+}
+form input:focus,textarea:focus{
+    border: 1px solid black;
+}
+form textarea{
+    height: 200px;
+    margin: 10px 0;
+}
