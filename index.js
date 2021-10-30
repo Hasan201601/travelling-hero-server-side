@@ -29,11 +29,26 @@ async function run() {
             const offerings = await cursor.toArray()
             res.send(offerings)
         })
+        //shipping GET API
+        app.get('/orders', async (req, res) => {
+            const cursor = orders.find({});
+            const userOrders = await cursor.toArray()
+            res.send(userOrders)
+        })
         //GET single offering
         app.get('/offerings/:id', async (req, res) => {
             const id = req.params.id
             const query = { _id: objectId(id) }
             const result = await offeringsCollection.findOne(query)
+            res.json(result)
+        })
+        //GET my order
+        app.get('/orders/:email', async (req, res) => {
+            const email = req.params.email
+            console.log(email)
+            const query = { email: email }
+            const result = await orders.find(query).toArray()
+            console.log(result)
             res.json(result)
         })
         //POST API
