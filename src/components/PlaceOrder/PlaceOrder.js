@@ -15,7 +15,7 @@ const PlaceOrder = () => {
     const { id } = useParams();
     console.log(id)
     useEffect(() => {
-        const url = `http://localhost:5000/offerings/${id}`;
+        const url = `https://creepy-crypt-29207.herokuapp.com/offerings/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setOffering(data))
@@ -29,7 +29,7 @@ const PlaceOrder = () => {
             img: offering.imgUrl
         };
         data.status = 'pending';
-        axios.post('http://localhost:5000/orders', data)
+        axios.post('https://creepy-crypt-29207.herokuapp.com/orders', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added new offering successfully')
