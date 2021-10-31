@@ -63,6 +63,30 @@ async function run() {
             const result = await orders.insertOne(order)
             res.json(result)
         })
+        //DELETE API 
+        app.delete('/orders/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: objectId(id) };
+            console.log(query)
+            const result = await orders.deleteOne(query);
+            res.json(result);
+        })
+        //UPDATE API
+        app.put('/orders/:id', async (req, res) => {
+            const id = req.params.id;
+            const updatedOrder = req.body;
+            console.log(updatedOrder)
+            const options = { upsert: true };
+            const filter = { _id: objectId(id) };
+            // create a document that sets the plot of the movie
+            const updateDoc = {
+                $set: {
+                    status: updatedOrder.status
+                },
+            };
+            const result = await orders.updateOne(filter, updateDoc, options);
+            res.json(result);
+        })
     }
     finally {
         // await client.close()
