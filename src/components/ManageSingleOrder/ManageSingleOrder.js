@@ -7,7 +7,7 @@ const ManageSingleOrder = ({ order, handleDeleteOrder }) => {
 
     const handleUpdateStatus = id => {
         const updatedOrder = { ...order }
-        const url = `http://localhost:5000/orders/${id}`;
+        const url = `https://creepy-crypt-29207.herokuapp.com/orders/${id}`;
 
         updatedOrder.status = 'approved';
         fetch(url, {

@@ -12,7 +12,7 @@ const MyOrders = () => {
     const [orders, setOrders] = useState([]);
     console.log(orders)
     useEffect(() => {
-        const url = `http://localhost:5000/orders/${email}`;
+        const url = `https://creepy-crypt-29207.herokuapp.com/orders/${email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data))

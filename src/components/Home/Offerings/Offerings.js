@@ -6,13 +6,14 @@ const Offerings = () => {
     const [offerings, setOfferings] = useState([]);
     console.log(offerings)
     useEffect(() => {
-        fetch('http://localhost:5000/offerings')
+        fetch('https://creepy-crypt-29207.herokuapp.com/offerings')
             .then(res => res.json())
             .then(data => setOfferings(data))
     }, [])
     return (
         <div className="my-5 text-center">
-            <h1 className="my-4">Our Tour Plans</h1>
+            <h1 className="my-4 fw-bolder">Our Tour Plans</h1>
+
             <Container>
                 <Row className="g-4">
                     {
