@@ -10,6 +10,7 @@ import './PlaceOrder.css'
 const PlaceOrder = () => {
     const { user } = useAuth()
     const [offering, setOffering] = useState([]);
+    console.log(offering)
     const history = useHistory()
     const { id } = useParams();
     console.log(id)
@@ -18,13 +19,14 @@ const PlaceOrder = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setOffering(data))
-    }, [])
+    }, [id])
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         data.orderItem = {
             id: offering._id,
             title: offering.title,
-            price: offering.price
+            price: offering.price,
+            img: offering.imgUrl
         };
         data.status = 'pending';
         axios.post('http://localhost:5000/orders', data)

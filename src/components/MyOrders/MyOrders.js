@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { Container, Row } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
 import Header from '../Home/Header/Header';
+import MyOrder from '../MyOrder/MyOrder';
+import './MyOrders.css'
 
 const MyOrders = () => {
     const { user } = useAuth()
-    const { email } = user
+    const { email } = user;
+    console.log(email)
     const [orders, setOrders] = useState([]);
     console.log(orders)
     useEffect(() => {
@@ -16,10 +20,19 @@ const MyOrders = () => {
     return (
         <div>
             <Header></Header>
-            <div className="mt-5">
-                <h2>orders</h2>
+            <div className='pt-5'>
+                <Container>
+                    <h4 className="text-center">My Orders</h4>
+
+                    <div >
+                        {
+                            orders.map(order => <MyOrder key={order._id} order={order}></MyOrder>)
+                        }
+
+                    </div>
+                </Container>
             </div>
-        </div>
+        </div >
     );
 };
 

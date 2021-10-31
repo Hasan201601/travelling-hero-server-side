@@ -10,6 +10,9 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import MyOrders from './components/MyOrders/MyOrders';
 import ManageAllOrders from './components/ManageAllOrders/ManageAllOrders';
 import PlaceOrder from './components/PlaceOrder/PlaceOrder';
+import About from './components/About/About';
+import Contact from './components/Contact/Contact';
+import Header from './components/Home/Header/Header';
 
 function App() {
   return (
@@ -21,6 +24,12 @@ function App() {
           </Route>
           <Route path="/home">
             <Home></Home>
+          </Route>
+          <Route path="/about">
+            <About></About>
+          </Route>
+          <Route path="/contact">
+            <Contact></Contact>
           </Route>
           <PrivateRoute path="/addservice">
             <AddService></AddService>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Button } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 import './Offering.css'
 

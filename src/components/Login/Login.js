@@ -1,7 +1,6 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../hooks/useAuth';
-import Header from '../Home/Header/Header';
 import './Login.css'
 
 const Login = () => {

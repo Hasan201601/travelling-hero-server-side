@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar, Button } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Header.css'
@@ -16,6 +16,7 @@ const Header = () => {
                         <Nav className="ms-auto d-flex align-items-center justify-content-center">
                             <NavLink className="ms-4 nav-item text-decoration-none text-white" to="/home">Home</NavLink>
                             <NavLink className="ms-4 nav-item text-decoration-none text-white" to="/about">About</NavLink>
+                            <NavLink className="ms-4 nav-item text-decoration-none text-white" to="/contact">Contact</NavLink>
 
                             {
                                 !user.email ? <NavLink className="ms-4 text-decoration-none nav-item text-white" to="/login">Login</NavLink>
