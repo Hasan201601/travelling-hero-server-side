@@ -12,17 +12,6 @@ const Banner = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src=" https://i.ibb.co/3MW5D3H/home-1-slider-bckgr-image-1.jpg"
-                        alt="First slide"
-                    />
-                    <Carousel.Caption>
-                        <h1>Nature Always Wears the Color of The Spirit</h1>
-                        <p>just browse through and chose your own voyage of discovery</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
                         src="https://i.ibb.co/d4dF9p6/home-1-slider-bckgr-image-2.jpg"
                         alt="Second slide"
                     />
@@ -32,6 +21,18 @@ const Banner = () => {
                         <p>just browse through and chose your own voyage of discovery</p>
                     </Carousel.Caption>
                 </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src=" https://i.ibb.co/3MW5D3H/home-1-slider-bckgr-image-1.jpg"
+                        alt="First slide"
+                    />
+                    <Carousel.Caption>
+                        <h1>Nature Always Wears the Color of The Spirit</h1>
+                        <p>just browse through and chose your own voyage of discovery</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
