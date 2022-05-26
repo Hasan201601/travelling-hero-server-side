@@ -1,0 +1,7 @@
+.my-order-table th{
+ border-bottom: 1px solid black;
+}
+table{
+    width: 75% ;
+    margin: auto;
+}
